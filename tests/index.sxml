@@ -1,0 +1,73 @@
+(wiki-page
+ (Header (title "Index"))
+ (body
+  (section
+   2
+   "Welcome"
+   ((img (@ (style "float:right; border-left:1px solid #ccc;border-bottom:1px solid #ccc;margin-left:1em;")
+            (src "http://www.call-with-current-continuation.org/chicken4-low.png")
+            (alt "Stylized picture of a chicken"))))
+   (p "Welcome to the Chicken wiki.")
+   (p "This wiki was created with the purpose of providing documentation for "
+      (link "http://www.call-with-current-continuation.org/" "Chicken")
+      ". Chicken is an implementation of the Scheme programming language that can compile Scheme programs to C code as well as interpret them.")
+   (p "You can use the search form in the left to get to what you want or start browsing through the following pages. Also, if a function is properly documented, chances are you can go to "
+      (tt "/function")
+      " to get to its documentation."))
+  (section
+   2
+   "About Chicken"
+   (dl (dt (int-link "elevator-pitch" "Elevator pitch"))
+       (dd "A brief explanation of why CHICKEN is suitable for Real World tasks")
+       (dt (int-link "Chicken for programmers of other languages"))
+       (dd "Chicken for programmers of C, Ruby, Python and other programming languages")
+       (dt (int-link "Portability"))
+       (dd "Supported platforms")
+       (dt (int-link "platforms" "Platforms & packages"))
+       (dd "Listing of all platforms where CHICKEN is available in pre-packaged form")
+       (dt (int-link "Download"))
+       (dd "Get the sources")
+       (dt (int-link "maintainers" "Maintainers"))
+       (dd "People who maintain CHICKEN")
+       (dt (int-link "Software"))
+       (dd "Software people have written using CHICKEN")))
+  (section
+   2
+   "Using Chicken"
+   (dl (dt (int-link "Tutorials"))
+       (dd "Tutorials about all things CHICKEN!")
+       (dt (int-link "man/4/The User's Manual" "The User's Manual"))
+       (dd "How to use it and reference manual")
+       (dt (int-link "Eggs"))
+       (dd "Information about CHICKEN extension-libraries (eggs)")
+       (dt (int-link "Tips and tricks"))
+       (dd "Some handy tips")
+       (dt (int-link "Code snippets"))
+       (dd "Various small coding examples")))
+  (section
+   2
+   "The Chicken community"
+   (dl (dt (int-link "Active Projects"))
+       (dd "join a CHICKEN-based project, or start one!")
+       (dt (int-link "discussion-groups" "Discussion groups"))
+       (dd "Mailing lists and IRC channel about CHICKEN")
+       (dt (int-link "Logos" "Art"))
+       (dd "CHICKEN-related art (logos, desktop backgrounds etc)")
+       (dt (int-link "Users"))
+       (dd "A list of users and contributors to CHICKEN Scheme")
+       (dt (int-link "svn checkout" "Wiki edits and SVN"))
+       (dd "How to edit this wiki using Subversion")))
+  (section
+   2
+   "Developing Chicken"
+   (dl (dt (int-link "Internals"))
+       (dd "Documentation about the internal structure of CHICKEN")
+       (dt (link "http://www.irp.oist.jp/trac/chicken/wiki" "Trac"))
+       (dd "The Chicken bug and feature tracker")
+       (dt (int-link "periodic-tasks" "Periodic tasks"))
+       (dd "Automated builds, development snapshots, salmonella results, eggs upload status"))
+   ((div (@ (class "ohloh")
+            (style "max-width: 400px; border: 1px solid #ccc;"))
+         (script
+          (@ (type "text/javascript")
+             (src "http://www.ohloh.net/p/5796/widgets/project_basic_stats.js"))))))))

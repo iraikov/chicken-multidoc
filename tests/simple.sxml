@@ -1,0 +1,56 @@
+(wiki-page
+ (Header (title "manual"))
+ (body
+  (section
+   2
+   "Page title"
+   (section
+    3
+    "First section"
+    (pre "[syntax] (function ARGUMENT ...)")
+    (p "Function definition. "
+       (link "http://example.com/foo" "More information")
+       " here.")
+    (def (sig (macro "(macro-name ARG ...)")) (p "Macro definition."))
+    (def (sig (procedure "(proc ARG ...)")) (p "Procedure definition."))
+    (def (sig (constant "PI")) (p "Constant definition."))
+    (def (sig (parameter "(whatever [value])"))
+         (p "Parameter definition."))
+    (section
+     4
+     "Subsection"
+     (p "The first subsection to use this name.  The second one should not "
+        "re-use this one's ID in the HTML output.")))
+   (section
+    3
+    "Second section"
+    (pre "[specifier] (function SYMBOL ...)")
+    (p "Another function definition.")
+    (dl (dt "Lassie")
+        (dd "A very intelligent dog.")
+        (dt "Garfield")
+        (dd "A pessimistic cat.")
+        (dt "Tux")
+        (dd "A fearsome pinguin."))
+    (p "Here's another random link to http://example.com/bar in the text.")
+    (section
+     4
+     "Subsection"
+     (p "This subsection uses the same section name as the earlier one. "
+        "It should get its own unique ID in the HTML output.")
+     ((script (@ (type "text/javascript")) "
+alert(\"Hello there\");
+")
+      "
+"
+      (center "This is not parsed as wiki text")))
+    (section
+     4
+     "Nested lists"
+     (dl (dt "foo")
+         (dd "bar")
+         (dt "box")
+         (dd "The " (i "box type") ". A box type is one of the symbols"))
+     (ul (li "no-box") (li "flat-box"))
+     (hr)
+     (p "Previous: " (int-link "Introduction")))))))

@@ -1,0 +1,25 @@
+multidoc examples
+=================
+
+Run the Scheme programs with csi -s from this directory, after
+installing multidoc with chicken-install.
+
+  guide.sxml        A sample page in the svnwiki SXML vocabulary:
+                    sections, labels and references, definitions,
+                    examples, a table with spans, lists and code.
+  Stacks.sxml       A second page, which links to guide.sxml.
+
+  convert.scm       Converts guide.sxml with every registered writer,
+                    and shows render and layout->string.
+  build-ir.scm      Builds a document with the IR constructors, and
+                    transforms it with filters and queries.
+  styled-table.scm  A table with header and footer parts, spanning
+                    cells and styles, in plain text, Markdown, HTML
+                    and LaTeX.
+  extend.scm        New SXML elements read as custom nodes, node
+                    writers for HTML and Texinfo, a derived writer
+                    and a new writer.
+  cli.sh            The multidoc program: formats, writer options,
+                    divisions, standard input, and a site of two
+                    pages whose links are checked and resolved.
+                    Writes its results to out/.

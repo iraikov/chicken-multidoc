@@ -1,0 +1,53 @@
+;; A sample page in the svnwiki SXML vocabulary read by multidoc.
+;; convert.scm and cli.sh turn it into every output format.
+
+(wiki-page
+ (Header (title "Queues") (author "A. Hacker"))
+ (body
+  (toc)
+
+  (section 2 "Introduction"
+   (label "intro")
+   (p "This page describes a small " (em "functional queue") " library. "
+      "A queue is a pair of lists: elements are added to the "
+      (tt "back") " list and removed from the " (tt "front") " list, "
+      "which is refilled by reversing the back list when it runs out. "
+      "Section " (ref "operations") " lists the operations and "
+      (ref "tbl-costs" "the cost table") " their running times.")
+   (p "See also the " (link "http://wiki.call-cc.org/" "CHICKEN wiki")
+      " and the page on " (int-link "Stacks#Introduction" "stacks") "."))
+
+  (section 2 "Operations"
+   (label "operations")
+   (def (sig (procedure "(make-queue)"))
+        (p "Returns an empty queue."))
+   (def (sig (procedure "(enqueue q x)")
+             (procedure "(queue-push q x)"))
+        (label "enqueue")
+        (p "Returns a queue with " (tt "x") " added at the back of " (tt "q") "."))
+   (def (sig (procedure "(dequeue q)"))
+        (p "Returns two values: the element at the front of " (tt "q")
+           " and the rest of the queue. It is an error to dequeue an empty queue."))
+
+   (section 3 "Examples"
+    (examples
+     (example (init "(import queues)")
+              (expr "(dequeue (enqueue (enqueue (make-queue) 1) 2))")
+              (result "1 #<queue (2)>")))))
+
+  (section 2 "Costs"
+   (table (label "tbl-costs")
+          (@ (caption "Running times") (border "1"))
+          (tr (th "Operation") (th "Worst case") (th "Amortized"))
+          (tr (td (tt "make-queue")) (td (@ (colspan "2")) "O(1)"))
+          (tr (td (tt "enqueue")) (td (@ (colspan "2")) "O(1)"))
+          (tr (td (tt "dequeue")) (td "O(n)") (td "O(1)")))
+   (p "The worst case of " (ref "enqueue" "enqueue") " is constant; "
+      "dequeue is linear only when the front list must be refilled."))
+
+  (section* 2 "Notes"
+   (ul (li "Queues are persistent: old versions remain valid.")
+       (li "Amortized bounds assume each version is used once."
+           (ul (li "Okasaki's banker's queue removes this restriction."))))
+   (blockquote (p "Simplicity is prerequisite for reliability." (br) "-- Edsger W. Dijkstra"))
+   (pre "(define q (enqueue (make-queue) 'a))\n(dequeue q)"))))

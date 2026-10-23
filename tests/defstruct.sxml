@@ -1,0 +1,194 @@
+(wiki-page
+ (Header (title "defstruct"))
+ (body
+  (section
+   2
+   "defstruct"
+   (toc)
+   (section
+    3
+    "Description"
+    (p "A more convenient form of " (tt "define-record")))
+   (section
+    3
+    "Author"
+    (p "Dorai Sitaram, ported to CHICKEN by "
+       (int-link "/users/felix winkelmann" "felix winkelmann")
+       ", with improvements by "
+       (int-link "/users/peter bex" "peter bex")))
+   (section 3 "Requirements" (p "None"))
+   (section
+    3
+    "Documentation"
+    (def (sig (macro "(defstruct NAME SLOT ...)"))
+         (p "Defines a record type with the name "
+            (tt "NAME")
+            ". "
+            (tt "SLOT")
+            " may be a symbol or a list of the form "
+            (tt "(NAME INIT)")
+            " where "
+            (tt "INIT")
+            " is the default value of the slot (the "
+            (tt "INIT")
+            " expression will only be evaluated when no value is given in the constructor procedure).  The "
+            (tt "defstruct")
+            " macro expands into predicate and accessor functions (just like the native "
+            (tt "define-record")
+            "):")
+         (examples
+          (example
+           "
+"
+           (init "
+(require-extension defstruct)
+")
+           "
+"
+           (expr "(defstruct point x y)")
+           "
+"
+           (result
+            "
+(begin
+  (define (point? x) ...)          ; is x a point?
+  (define (point-x p) ...)         ; return x slot of point p
+  (define (point-x-set! p n) ...)  ; change x slot of point p to n
+  ...)
+")
+           "
+"))
+         (p "Additionally, a constructor procedure "
+            (tt "make-STRUCTNAME")
+            " is defined, which accepts initialization values for all slots specified as keyword arguments:")
+         (examples
+          (example
+           "
+"
+           (expr "
+(define p1 (make-point x: 99 y: 42))
+p1
+")
+           "
+"
+           (result "; a point with x = 99 and y = 42")
+           "
+"))
+         (p "On Chicken 4 and higher, there are also two procedures "
+            (tt "update-STRUCTNAME")
+            " and "
+            (tt "set-STRUCTNAME!")
+            " defined for functionally and destructively updating selected values in an existing record:")
+         (examples
+          (example
+           "
+"
+           (expr "
+(define p2 (update-point p1 x: 100))
+p2
+")
+           "
+"
+           (result "; a point with x = 100 and y = 42")
+           "
+"
+           (expr "
+(= p1-x 99)
+")
+           "
+"
+           (result "#t")
+           "
+"
+           (expr "
+(set-point! p1 x: 100)
+(= p1-x 100)
+")
+           "
+"
+           (result "#t")
+           "
+"))
+         (p "Additionally, there are two conversion procedures for converting to and from alists, "
+            (tt "STRUCTNAME->alist")
+            " and "
+            (tt "alist->STRUCTNAME")
+            ":")
+         (examples
+          (example
+           "
+"
+           (expr "
+(define p3 (alist->point '((x . 1) (y . 2))))
+p3
+")
+           "
+"
+           (result "; a point with x = 1 and y = 2")
+           "
+"
+           (expr "
+"))
+          (expr "
+"
+                (example
+                 "
+"
+                 (expr "
+(define p4 (make-point x: 123 y: 456))
+(point->alist p4)
+")
+                 "
+"
+                 (result "((x . 123) (y . 456))")
+                 "
+"
+                 (expr "
+"))
+                (expr)))))
+   (section
+    3
+    "Bugs and limitations"
+    (ul (li "Just like with "
+            (tt "define-record")
+            " you cannot use field names ending with "
+            (tt "-set!")
+            " if you also have a similar field name not ending with "
+            (tt "-set!")
+            ".")
+        (li "Just like with "
+            (tt "define-record")
+            " you should avoid defining record types with a name that is a prefix of another record type's name.")
+        (li "You cannot use a field named " (tt ">alist") ".")
+        (li "You should avoid defining record types named "
+            (tt "make")
+            " or "
+            (tt "update")
+            ".")))
+   (section
+    3
+    "License"
+    (pre " Copyright (c) 2005, Dorai Sitaram
+ Copyright (c) 2005, Felix Winkelmann (Chicken port)
+ Copyright (c) 2008-2010, Peter Bex (Hygienic Chicken port + extensions)
+ All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following
+ conditions are met:
+ 
+   Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+     disclaimer. 
+   Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
+     disclaimer in the documentation and/or other materials provided with the distribution. 
+   Neither the name of the author nor the names of its contributors may be used to endorse or promote
+     products derived from this software without specific prior written permission. 
+ 
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND ANY EXPRESS
+ OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
+ AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR
+ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.")))))

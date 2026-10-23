@@ -1,0 +1,126 @@
+(doc
+  ((title . "manual"))
+  ((Section
+     section
+     (attr "page-title" () () #f)
+     #t
+     ((Str "Page") Space (Str "title"))
+     ((Section
+        subsection
+        (attr "first-section" () () #f)
+        #t
+        ((Str "First") Space (Str "section"))
+        ((CodeBlock
+           (attr #f () () #f)
+           "[syntax] (function ARGUMENT ...)")
+         (Para
+           ((Str "Function") Space (Str "definition.") Space
+            (Link
+              (attr #f () () #f)
+              ((Str "More") Space (Str "information"))
+              "http://example.com/foo"
+              external) Space (Str "here.")))
+         (Definition
+           (attr #f () () #f)
+           ((macro ((Code (attr #f () () #f) "(macro-name ARG ...)"))))
+           ((Para ((Str "Macro") Space (Str "definition.")))))
+         (Definition
+           (attr #f () () #f)
+           ((procedure ((Code (attr #f () () #f) "(proc ARG ...)"))))
+           ((Para ((Str "Procedure") Space (Str "definition.")))))
+         (Definition
+           (attr #f () () #f)
+           ((constant ((Code (attr #f () () #f) "PI"))))
+           ((Para ((Str "Constant") Space (Str "definition.")))))
+         (Definition
+           (attr #f () () #f)
+           ((parameter ((Code (attr #f () () #f) "(whatever [value])"))))
+           ((Para ((Str "Parameter") Space (Str "definition.")))))
+         (Section
+           subsubsection
+           (attr "subsection" () () #f)
+           #t
+           ((Str "Subsection"))
+           ((Para
+              ((Str "The") Space (Str "first") Space (Str "subsection")
+               Space (Str "to") Space (Str "use") Space (Str "this")
+               Space (Str "name.") Space (Str "The") Space
+               (Str "second") Space (Str "one") Space (Str "should")
+               Space (Str "not") Space (Str "re-use") Space (Str "this")
+               Space (Str "one's") Space (Str "ID") Space (Str "in")
+               Space (Str "the") Space (Str "HTML") Space
+               (Str "output.")))))))
+      (Section
+        subsection
+        (attr "second-section" () () #f)
+        #t
+        ((Str "Second") Space (Str "section"))
+        ((CodeBlock
+           (attr #f () () #f)
+           "[specifier] (function SYMBOL ...)")
+         (Para
+           ((Str "Another") Space (Str "function") Space
+            (Str "definition.")))
+         (DefinitionList
+           ((((Str "Lassie"))
+              ((Plain
+                 ((Str "A") Space (Str "very") Space (Str "intelligent")
+                  Space (Str "dog.")))))
+            (((Str "Garfield"))
+             ((Plain
+                ((Str "A") Space (Str "pessimistic") Space (Str "cat.")))))
+            (((Str "Tux"))
+             ((Plain
+                ((Str "A") Space (Str "fearsome") Space (Str "pinguin.")))))))
+         (Para
+           ((Str "Here's") Space (Str "another") Space (Str "random")
+            Space (Str "link") Space (Str "to") Space
+            (Str "http://example.com/bar") Space (Str "in") Space
+            (Str "the") Space (Str "text.")))
+         (Section
+           subsubsection
+           (attr "subsection-2" () () #f)
+           #t
+           ((Str "Subsection"))
+           ((Para
+              ((Str "This") Space (Str "subsection") Space (Str "uses")
+               Space (Str "the") Space (Str "same") Space
+               (Str "section") Space (Str "name") Space (Str "as") Space
+               (Str "the") Space (Str "earlier") Space (Str "one.")
+               Space (Str "It") Space (Str "should") Space (Str "get")
+               Space (Str "its") Space (Str "own") Space (Str "unique")
+               Space (Str "ID") Space (Str "in") Space (Str "the") Space
+               (Str "HTML") Space (Str "output.")))
+            (RawBlock
+              html
+              "<script type=\"text/javascript\">\nalert(\"Hello there\");\n</script>")
+            (Div
+              (attr #f ("center") () #f)
+              ((Para
+                 ((Str "This") Space (Str "is") Space (Str "not") Space
+                  (Str "parsed") Space (Str "as") Space (Str "wiki")
+                  Space (Str "text")))))))
+         (Section
+           subsubsection
+           (attr "nested-lists" () () #f)
+           #t
+           ((Str "Nested") Space (Str "lists"))
+           ((DefinitionList
+              ((((Str "foo")) ((Plain ((Str "bar")))))
+               (((Str "box"))
+                ((Plain
+                   ((Str "The") Space
+                    (Emph ((Str "box") Space (Str "type"))) (Str ".")
+                    Space (Str "A") Space (Str "box") Space (Str "type")
+                    Space (Str "is") Space (Str "one") Space (Str "of")
+                    Space (Str "the") Space (Str "symbols")))))))
+            (BulletList
+              (((Plain ((Str "no-box")))) ((Plain ((Str "flat-box"))))))
+            HorizontalRule
+            (Para
+              ((Str "Previous:") Space
+               (Link
+                 (attr #f () (("int-link" . "Introduction")) #f)
+                 ((Str "Introduction"))
+                 "Introduction"
+                 internal)))))))))))

@@ -1,0 +1,110 @@
+\input texinfo
+@setfilename manual.info
+@settitle manual
+
+@titlepage
+@title manual
+@end titlepage
+
+@node Top
+@top manual
+
+@menu
+* Page title::
+@end menu
+
+@node Page title
+@chapter Page title
+
+@menu
+* First section::
+* Second section::
+@end menu
+
+@node First section
+@section First section
+
+@example
+[syntax] (function ARGUMENT ...)
+@end example
+
+Function definition. @uref{http://example.com/foo, More information}
+here.
+
+@deffn {macro} {(macro-name ARG ...)}
+Macro definition.
+@end deffn
+
+@deffn {procedure} {(proc ARG ...)}
+Procedure definition.
+@end deffn
+
+@deffn {constant} {PI}
+Constant definition.
+@end deffn
+
+@deffn {parameter} {(whatever [value])}
+Parameter definition.
+@end deffn
+
+@menu
+* Subsection::
+@end menu
+
+@node Subsection
+@subsection Subsection
+
+The first subsection to use this name. The second one should not re-use
+this one's ID in the HTML output.
+
+@node Second section
+@section Second section
+
+@example
+[specifier] (function SYMBOL ...)
+@end example
+
+Another function definition.
+
+@table @asis
+@item Lassie
+A very intelligent dog.
+@item Garfield
+A pessimistic cat.
+@item Tux
+A fearsome pinguin.
+@end table
+
+Here's another random link to http://example.com/bar in the text.
+
+@menu
+* Subsection 2::
+* Nested lists::
+@end menu
+
+@node Subsection 2
+@subsection Subsection
+
+This subsection uses the same section name as the earlier one. It should
+get its own unique ID in the HTML output.
+
+This is not parsed as wiki text
+
+@node Nested lists
+@subsection Nested lists
+
+@table @asis
+@item foo
+bar
+@item box
+The @emph{box type}. A box type is one of the symbols
+@end table
+
+@itemize @bullet
+@item no-box
+@item flat-box
+@end itemize
+
+Previous: Introduction
+
+@bye

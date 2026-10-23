@@ -1,0 +1,72 @@
+manual
+
+Page title
+==========
+
+First section
+-------------
+
+    [syntax] (function ARGUMENT ...)
+
+Function definition. More information <http://example.com/foo> here.
+
+[macro] (macro-name ARG ...)
+
+    Macro definition.
+
+[procedure] (proc ARG ...)
+
+    Procedure definition.
+
+[constant] PI
+
+    Constant definition.
+
+[parameter] (whatever [value])
+
+    Parameter definition.
+
+Subsection
+
+The first subsection to use this name. The second one should not re-use
+this one's ID in the HTML output.
+
+Second section
+--------------
+
+    [specifier] (function SYMBOL ...)
+
+Another function definition.
+
+Lassie
+    A very intelligent dog.
+
+Garfield
+    A pessimistic cat.
+
+Tux
+    A fearsome pinguin.
+
+Here's another random link to http://example.com/bar in the text.
+
+Subsection
+
+This subsection uses the same section name as the earlier one. It should
+get its own unique ID in the HTML output.
+
+This is not parsed as wiki text
+
+Nested lists
+
+foo
+    bar
+
+box
+    The _box type_. A box type is one of the symbols
+
+  * no-box
+  * flat-box
+
+------------------------------------------------------------------------
+
+Previous: Introduction

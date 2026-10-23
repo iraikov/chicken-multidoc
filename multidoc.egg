@@ -1,0 +1,56 @@
+;; -*- Hen -*-
+
+((synopsis "Converts SXML to various document formats through a pandoc-style intermediate representation.")
+ (version "3.0.0")
+ (license "BSD")
+ (category doc-tools)
+ (author "Ivan Raikov")
+ (dependencies datatype matchable yasos wl-pprint getopt-long srfi-1 srfi-13 srfi-14 srfi-69)
+ (test-dependencies test)
+ (components
+  (extension multidoc.ir
+             (source "multidoc-ir.scm")
+             (source-dependencies "box.scm" "stack.scm"))
+  (extension multidoc.sxml
+             (source "multidoc-sxml.scm")
+             (source-dependencies "box.scm" "stack.scm")
+             (component-dependencies multidoc.ir))
+  (extension multidoc.refs
+             (source "multidoc-refs.scm")
+             (source-dependencies "box.scm" "stack.scm")
+             (component-dependencies multidoc.ir))
+  (extension multidoc.backend
+             (source "multidoc-backend.scm")
+             (source-dependencies "box.scm" "stack.scm")
+             (component-dependencies multidoc.ir multidoc.sxml multidoc.refs))
+  (extension multidoc.html
+             (source "multidoc-html.scm")
+             (component-dependencies multidoc.ir multidoc.backend))
+  (extension multidoc.latex
+             (source "multidoc-latex.scm")
+             (component-dependencies multidoc.ir multidoc.backend))
+  (extension multidoc.texinfo
+             (source "multidoc-texinfo.scm")
+             (component-dependencies multidoc.ir multidoc.backend))
+  (extension multidoc.markdown
+             (source "multidoc-markdown.scm")
+             (component-dependencies multidoc.ir multidoc.backend))
+  (extension multidoc.plain
+             (source "multidoc-plain.scm")
+             (component-dependencies multidoc.ir multidoc.backend))
+  (extension multidoc.native
+             (source "multidoc-native.scm")
+             (component-dependencies multidoc.ir multidoc.backend))
+  (extension multidoc
+             (source "multidoc.scm")
+             (component-dependencies multidoc.ir multidoc.sxml multidoc.refs multidoc.backend
+                                     multidoc.html multidoc.latex multidoc.texinfo
+                                     multidoc.markdown multidoc.plain multidoc.native))
+  (extension multidoc.cli
+             (source "multidoc-cli.scm")
+             (component-dependencies multidoc))
+  (program multidoc-program
+           (source "multidoc-main.scm")
+           (install-name "multidoc")
+           (component-dependencies multidoc.cli))
+  ))

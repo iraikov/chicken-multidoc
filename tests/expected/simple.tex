@@ -1,0 +1,88 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\sloppy
+
+\begin{document}
+
+\section{Page title}\label{page-title}
+
+\subsection{First section}\label{first-section}
+
+\begin{verbatim}
+[syntax] (function ARGUMENT ...)
+\end{verbatim}
+
+Function definition. \href{http://example.com/foo}{More information}
+here.
+
+\begin{description}
+\item[macro] \texttt{(macro-name ARG ...)}
+\end{description}
+
+Macro definition.
+
+\begin{description}
+\item[procedure] \texttt{(proc ARG ...)}
+\end{description}
+
+Procedure definition.
+
+\begin{description}
+\item[constant] \texttt{PI}
+\end{description}
+
+Constant definition.
+
+\begin{description}
+\item[parameter] \texttt{(whatever [value])}
+\end{description}
+
+Parameter definition.
+
+\subsubsection{Subsection}\label{subsection}
+
+The first subsection to use this name. The second one should not re-use
+this one's ID in the HTML output.
+
+\subsection{Second section}\label{second-section}
+
+\begin{verbatim}
+[specifier] (function SYMBOL ...)
+\end{verbatim}
+
+Another function definition.
+
+\begin{description}
+\item[{Lassie}] A very intelligent dog.
+\item[{Garfield}] A pessimistic cat.
+\item[{Tux}] A fearsome pinguin.
+\end{description}
+
+Here's another random link to http://example.com/bar in the text.
+
+\subsubsection{Subsection}\label{subsection-2}
+
+This subsection uses the same section name as the earlier one. It should
+get its own unique ID in the HTML output.
+
+\begin{center}
+This is not parsed as wiki text
+\end{center}
+
+\subsubsection{Nested lists}\label{nested-lists}
+
+\begin{description}
+\item[{foo}] bar
+\item[{box}] The \emph{box type}. A box type is one of the symbols
+\end{description}
+
+\begin{itemize}
+\item no-box
+\item flat-box
+\end{itemize}
+
+\begin{center}\rule{0.8\textwidth}{0.4pt}\end{center}
+
+Previous: Introduction
+\end{document}

@@ -1,0 +1,15 @@
+(wiki-page
+ (Header (title "Manual example"))
+ (body
+  ((toc)
+   (section
+    2
+    "Page title"
+    (section
+     3
+     "First section"
+     (pre "[syntax] (function ARGUMENT ...)")
+     (p "Function definition. "
+        (link "http://example.com/foo" "More information")
+        " here.")
+     (def (sig (macro "(macro-name ARG ...)")) (p "Macro definition.")))))))

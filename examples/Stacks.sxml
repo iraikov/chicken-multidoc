@@ -1,0 +1,14 @@
+;; A second page, used by cli.sh to show links between pages.  It
+;; links to sections and a table of guide.sxml, which links back here.
+
+(wiki-page
+ (Header (title "Stacks"))
+ (body
+  (section 2 "Introduction"
+   (p "A stack is a list used from one end. Unlike "
+      (int-link "guide#Introduction" "queues") ", stacks need no reversal: "
+      "compare the costs in " (ref "guide#tbl-costs") "."))
+  (section 2 "Operations"
+   (p "Pushing and popping take constant time; see also "
+      (int-link "guide#Operations") " for the queue operations, and "
+      (int-link "guide#Missing" "a section that does not exist") "."))))
