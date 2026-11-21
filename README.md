@@ -1,5 +1,7 @@
 # multidoc: Document Conversion for CHICKEN Scheme
 
+[![Chicken Scheme](https://img.shields.io/badge/Chicken-Scheme-orange.svg)](https://call-cc.org/)
+
 A document converter for CHICKEN Scheme in the spirit of pandoc.
 multidoc reads documents written in SXML, turns them into an
 algebraic intermediate representation (IR), and writes them as HTML,
