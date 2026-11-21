@@ -1,7 +1,29 @@
-*.ss~
+# Editor backups and lock files
+*~
 *.ss#*
 .#*.ss
-
-*.scm~
 *.scm#*
 .#*.scm
+
+# CHICKEN build artifacts (chicken-install)
+*.import.scm
+*.build.sh
+*.install.sh
+*.link
+*.a
+*.o
+*.so
+*.c
+*.release-info
+
+# The multidoc program, as built in the source directory
+/multidoc-program
+
+# Files written by the examples
+/examples/out/
+/examples/guide.html
+/examples/guide.tex
+/examples/guide.texi
+/examples/guide.md
+/examples/guide.txt
+/examples/guide.native
