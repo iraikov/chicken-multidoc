@@ -284,7 +284,7 @@ reference targets, citation keys and the features the document uses
 (write-output writer doc ctx dest)                       ; dest: port, path or #f
 ```
 
-### The IR
+### Intermediate Representation
 
 ```scheme
 ;; Inlines
