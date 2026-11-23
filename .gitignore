@@ -14,7 +14,6 @@
 *.o
 *.so
 *.c
-*.release-info
 
 # The multidoc program, as built in the source directory
 /multidoc-program
